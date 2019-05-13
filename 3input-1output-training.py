@@ -10,6 +10,8 @@
 import numpy as np
 
 # sigmoid function
+# this nonlinearity maps a function called a "sigmoid"
+# If the sigmoid's output is a variable "out", then the derivative is simply out * (1-out)
 def nonlin(x,deriv=False):
     if(deriv==True):
         return x*(1-x)
@@ -34,7 +36,7 @@ for iter in range(10000):
 
     # forward propagation
     l0 = X
-    l1 = nonlin(np.dot(l0,syn0))  #l1 = nonlin (l0 x syn0)
+    l1 = nonlin(np.dot(l0,syn0))  #l1 = nonlin (l0 x syn0), matrix-matrix multiplication
 
     # how much did we miss?
     l1_error = y - l1
