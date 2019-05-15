@@ -41,3 +41,7 @@ This is our "nonlinearity". While it can be several kinds of functions, this non
 
 <img src="https://iamtrask.github.io/img/sigmoid.png" width="400">
 
+The derivative of the sigmoid for error backward correction:
+
+<img src="https://iamtrask.github.io/img/sigmoid-deriv-2.png" width="400">
+
