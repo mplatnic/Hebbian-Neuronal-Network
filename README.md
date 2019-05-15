@@ -1,5 +1,5 @@
 # Hebbian-Neuronal-Network
-[Python code for basic Hebbian Neuronal Network]
+# Python code for basic Hebbian Neuronal Network 
 
 The Hebbian Learning Rule is a learning rule that specifies how much the weight of the connection between two units should be increased or decreased in proportion to the product of their activation. The rule builds on Hebbs's 1949 learning rule which states that the connections between two neurons might be strengthened if the neurons fire simultaneously. The Hebbian Rule works well as long as all the input patterns are orthogonal or uncorrelated. The requirement of orthogonality places serious limitations on the Hebbian Learning Rule. A more powerful learning rule is the delta rule, which utilizes the discrepancy between the desired and actual output of each output unit to change the weights feeding into it. 
 
@@ -26,7 +26,7 @@ Oja Rule:
     Δw#ij=ε·post#j·(pre#i−post#j.w#ij)
     Δw#ij=ε·(post#j·pre#i−post#j^2.w#ij)
 
-<u>Basics on Mattrix multiplication:</u>
+# Basics on Mattrix multiplication:
 
 <img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-b.svg" width="320">
 
@@ -34,7 +34,7 @@ Oja Rule:
 
 <img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-c.svg" width="400">
 
-<span style="text-decoration: underline;">Note on Sigmoid function:.</span>
+# Note on Sigmoid function:
 
 
 This is our "nonlinearity". While it can be several kinds of functions, this nonlinearity maps a function called a "sigmoid". A sigmoid function maps any value to a value between 0 and 1. 
