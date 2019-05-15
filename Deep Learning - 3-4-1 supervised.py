@@ -60,6 +60,8 @@ for iter in range(10000):
     l2_delta = l2_error * nonlin(l2,True)    
     
     # how much did each l1 value contribute to the l2 error (according to the weights)?
+    #"contribution weighted error" because we learn how much each node value in l1 
+    #"contributed" to the error in l2. This step is called "backpropagating" and is the namesake of the algorithm
     l1_error = l2_delta.dot(syn1.T)
     l1_delta = l1_error * nonlin(l1,True)
 
