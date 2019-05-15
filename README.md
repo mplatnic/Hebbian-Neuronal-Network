@@ -26,7 +26,7 @@ Oja Rule:
     Δw#ij=ε·post#j·(pre#i−post#j.w#ij)
     Δw#ij=ε·(post#j·pre#i−post#j^2.w#ij)
 
-# Basics on Mattrix multiplication:
+## Basics on Mattrix multiplication:
 
 <img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-b.svg" width="320">
 
@@ -34,9 +34,10 @@ Oja Rule:
 
 <img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-c.svg" width="400">
 
-# Note on Sigmoid function:
+## Note on Sigmoid function:
 
 
 This is our "nonlinearity". While it can be several kinds of functions, this nonlinearity maps a function called a "sigmoid". A sigmoid function maps any value to a value between 0 and 1. 
 
 <img src="https://iamtrask.github.io/img/sigmoid.png" width="400">
+
