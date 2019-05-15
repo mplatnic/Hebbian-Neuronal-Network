@@ -5,6 +5,7 @@
 #l1 	Second Layer of the Network, otherwise known as the hidden layer
 #Syn0 	First layer of weights, Synapse 0, connecting l0 to l1.
 # 3 inputs, 1 output
+# SUPERVISED neural network using non linear Sigmoid feedback
 
 
 import numpy as np
