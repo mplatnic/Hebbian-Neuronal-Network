@@ -28,8 +28,13 @@ Oja Rule:
 
 Basics on Mattrix multiplication:
 
-<img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-b.svg" width="400">
+<img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-b.svg" width="320">
 
 (1, 2, 3) • (8, 10, 12) = 1×8 + 2×10 + 3×12 = 64
 
 <img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-c.svg" width="400">
+
+Note on Sigmoid function:
+This is our "nonlinearity". While it can be several kinds of functions, this nonlinearity maps a function called a "sigmoid". A sigmoid function maps any value to a value between 0 and 1. 
+
+<img src="https://iamtrask.github.io/img/sigmoid.png" width="400">
