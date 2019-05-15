@@ -34,7 +34,8 @@ Oja Rule:
 
 <img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-c.svg" width="400">
 
-<u>Note on Sigmoid function:</u>
+<span style="text-decoration: underline;">Note on Sigmoid function:.</span>
+
 
 This is our "nonlinearity". While it can be several kinds of functions, this nonlinearity maps a function called a "sigmoid". A sigmoid function maps any value to a value between 0 and 1. 
 
