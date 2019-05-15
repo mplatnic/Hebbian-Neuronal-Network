@@ -25,3 +25,8 @@ Oja Rule:
    
     Δw#ij=ε·post#j·(pre#i−post#j.w#ij)
     Δw#ij=ε·(post#j·pre#i−post#j^2.w#ij)
+
+Basics on Mattrix multiplication:
+<img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-b.svg" width="400">
+(1, 2, 3) • (8, 10, 12) = 1×8 + 2×10 + 3×12 = 64
+<img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-c.svg" width="400">
