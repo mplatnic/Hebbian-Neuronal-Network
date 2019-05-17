@@ -1,5 +1,7 @@
 # Artificial-Neuronal-Network
-## Python code for basic Hebbian Neuronal Network 
+# Supervised Learning
+
+## Introduction: Hebbian Neuronal Network 
 
 The Hebbian Learning Rule is a learning rule that specifies how much the weight of the connection between two units should be increased or decreased in proportion to the product of their activation. The rule builds on Hebbs's 1949 learning rule which states that the connections between two neurons might be strengthened if the neurons fire simultaneously. The Hebbian Rule works well as long as all the input patterns are orthogonal or uncorrelated. The requirement of orthogonality places serious limitations on the Hebbian Learning Rule. A more powerful learning rule is the delta rule, which utilizes the discrepancy between the desired and actual output of each output unit to change the weights feeding into it. 
 
