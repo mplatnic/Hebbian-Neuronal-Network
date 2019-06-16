@@ -50,4 +50,11 @@ The derivative of the sigmoid for error backward correction:
 
 used for: l1_delta = l1_error * nonlin(l1,True)
 
-When we multiply the "slopes" by the error, we are reducing the error of high confidence predictions. Look at the sigmoid picture again! If the slope was really shallow (close to 0), then the network either had a very high value, or a very low value. This means that the network was quite confident one way or the other. However, if the network guessed something close to (x=0, y=0.5) then it isn't very confident. We update these "wishy-washy" predictions most heavily, and we tend to leave the confident ones alone by multiplying them by a number close to 0. 
+When we multiply the "slopes" by the error, we are reducing the error of high confidence predictions. Look at the sigmoid picture again! If the slope was really shallow (close to 0), then the network either had a very high value, or a very low value. This means that the network was quite confident one way or the other. However, if the network guessed something close to (x=0, y=0.5) then it isn't very confident. We update these "wishy-washy" predictions most heavily, and we tend to leave the confident ones alone by multiplying them by a number close to 0.
+
+ADDITIONAL LINKS:
+An easy-to-follow scikit-learn tutorial that will help you get started with Python machine learning
+https://pythonprogramming.net/flat-clustering-machine-learning-python-scikit-learn/
+
+How to create a poet / writer using Deep Learning (Text Generation using Python)?
+https://www.analyticsvidhya.com/blog/2018/03/text-generation-using-python-nlp/
