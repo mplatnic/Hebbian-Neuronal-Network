@@ -1,10 +1,15 @@
 # Artificial-Intelligence
 
-Devided in many fields,
+A.I. is divided in many fields;
+
 Machine learning made of Deep learning, Supervised and Unsupervised Learning
+
 Natural Language Processing
+
 Expert systems
+
 Speech
+
 Vision
 ..
 # Supervised Learning
