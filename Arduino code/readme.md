@@ -41,9 +41,10 @@ This error is then fed back through the network and the weights are adjusted inc
 Feed-Forward model
 With feed-forward or Feedforward control, the disturbances are measured and accounted for before they have time to affect the system. In the house example, a feed-forward system may measure the fact that the door is opened and automatically turn on the heater before the house can get too cold. The difficulty with feed-forward control is that the effects of the disturbances on the system must be accurately predicted, and there must not be any unmeasured disturbances. For instance, if a window was opened that was not being measured, the feed-forward-controlled thermostat might let the house cool down.
 
-<img src="https://upload.wikimedia.org/wikipedia/en/c/c7/Control_Systems.png" width="600">
+<img src="https://upload.wikimedia.org/wikipedia/en/c/c7/Control_Systems.png" width="500">
 
-
+With stearing wheel example, Disturbance is change of speed, Input is the movement of the manual stearing wheel.
+If driver is included in the system and compensate for direction, then feedback model
 
 See also Genetic Algorithm, creating chromosomes after testing them mutate those with best results to create new chromosomes.
 (https://www.youtube.com/watch?v=eCDU8mMcU5I)???
