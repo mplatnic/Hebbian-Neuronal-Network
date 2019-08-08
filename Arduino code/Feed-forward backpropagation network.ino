@@ -1,8 +1,7 @@
 /******************************************************************
  * ArduinoANN - An artificial neural network for the Arduino
- * All basic settings can be controlled via the Network Configuration
- * section.
- * See robotics.hobbizine.com/arduinoann.html for details.
+ * All basic settings can be controlled via the Network Configuration section.
+ * Code based on robotics.hobbizine.com/arduinoann.html 
  ******************************************************************/
 
 #include <math.h>
