@@ -35,6 +35,10 @@ in neural network application. In the backpropagation algorithm, the network is 
 
 When the network is then presented with a training set of inputs and outputs: 
 As the inputs are fed through the system, the actual output is compared to the desired output and the error is calculated. 
+
+
+Equipement:
+Servo: https://www.littlearmrobot.com/store/p10/MG90S_servo.html
 This error is then fed back through the network and the weights are adjusted incrementally according to a learning algorithm. 
 
 
