@@ -1,9 +1,4 @@
-Step 4: Simple Reinforcement Code:
-
-/*Mmachine learnng crawling Robot using Simple Reinforcement Learning
-
-//Mmachine learnng crawling Robot using Simple Reinforcement Learning
-
+// Machine learning crawling Robot using Simple Reinforcement Learning
 //by: jim demelloby: jim demello
 
 //Mmachine learnng crawling Robot using Simple Reinforcement Learning
