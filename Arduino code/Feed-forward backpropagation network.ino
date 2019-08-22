@@ -2,6 +2,19 @@
  * ArduinoANN - An artificial neural network for the Arduino
  * All basic settings can be controlled via the Network Configuration section.
  * Code based on robotics.hobbizine.com/arduinoann.html 
+ * feed forward networks and the backpropagation algorithm
+ * Supervided ANN
+ *
+ * in Brief:
+ *  Initialize the arrays. The weights are set to random numbers and two additional arrays that hold change values used in backpropagation are set to zeros.
+ *  Begin a large loop that runs the system through a complete set of the training data.
+ *  Randomize the order in which the training sets run on each iteration to reduce oscillation or convergence on local minimums.
+ *  Calculate the hidden layer activations, output layer activations and errors.
+ *  Backpropagate the errors to the hidden layer.
+ *  Update the weights.
+ *  If the system error is greater than the success threshold then run another iteration of the training data.
+ *  If the system error is less than the success threshold then break, declare success, and send data to the serial terminal.
+ *  Every 1000 cycles send the results of a test run of the training set to the serial terminal.
  ******************************************************************/
 
 #include <math.h>
