@@ -46,7 +46,7 @@ int episodes = 0;
 int spos1 = 0; // servo1 position
 int spos2 = 0; // servo2 position
 int spos3 = 0; // servo1 position
-int spos4 =0; // servo2 position
+int spos4 = 0; // servo2 position
 int spos1High =0; // servo1 highest position
 int spos2High =0;
 int spos3High =0;
@@ -58,9 +58,9 @@ void setup (){
   Serial.begin(9600);
   servo1.attach( 9, 600, 2400 );
   servo2.attach( 6, 600, 2400 );
-  myServo(servo1,0,1,8,1); // set servos to zero position
+  myServo(servo1,0,1,8,1); // set servos to zero position  
   delay(1000);
-  myServo(servo2,0,1,8,1);
+  myServo(servo2,0,1,8,1); // (Servo servo,int newAngle,int angleInc,int incDelay,int servoNum)
   delay(1000);
   pinMode(TRIGGER, OUTPUT); // setup sonar
   pinMode(ECHO, INPUT);
@@ -117,79 +117,44 @@ void doTraining() {
     Serial.print(" distance = ");Serial.println(distDifference);
     if ( distCurrent > distanceHigh) { // if current distancee is greater than highest then replace postions
       spos1High = spos1; // servo position 1
-
-spos2High = spos2; // servo position 2
-
-spos3High = spos3; // servo position 3
-
-spos4High = spos4; // servo position 4
-
-distanceHigh = distCurrent;
-
-// distPrevious = distCurrent;
-
-}
-
-} // end each episode
-
+      spos2High = spos2; // servo position 2
+      spos3High = spos3; // servo position 3
+      spos4High = spos4; // servo position 4
+      distanceHigh = distCurrent;
+      // distPrevious = distCurrent;
+    }
+  } // end each episode
 Serial.print("spos1High = ");Serial.println(spos1High);
-
 Serial.println(" ");
-
 } // end doTraining
 
 void doLearnedBehavior() {
-
-Serial.println("Do Learned behavior... ");
-
-myServo(servo1,0,1,8,1);
-
-myServo(servo2,0,1,8,1);
-
-delay(2000);
-
-for (int i=0;i<30;i++) {
-
-Serial.print(" spos1High= "); Serial.print(spos1High);
-
-Serial.print(" spos2High = ");Serial.print(spos2High);
-
-Serial.print(" spos3High = ");Serial.print(spos3High);
-
-Serial.print(" spos4High = ");Serial.println(spos4High);
-
-myServo(servo1,spos1High,1,7,1);
-
-myServo(servo2,spos2High,1,7,1);
-
-myServo(servo1,spos3High,1,7,1);
-
-myServo(servo2,spos4High,1,7,1);
-
-} // doLearned
-
+  Serial.println("Do Learned behavior... ");
+  myServo(servo1,0,1,8,1);
+  myServo(servo2,0,1,8,1);
+  delay(2000);
+  for (int i=0;i<30;i++) {
+    Serial.print(" spos1High= "); Serial.print(spos1High);
+    Serial.print(" spos2High = ");Serial.print(spos2High);
+    Serial.print(" spos3High = ");Serial.print(spos3High);
+    Serial.print(" spos4High = ");Serial.println(spos4High);
+    myServo(servo1,spos1High,1,7,1);
+    myServo(servo2,spos2High,1,7,1);
+    myServo(servo1,spos3High,1,7,1);
+    myServo(servo2,spos4High,1,7,1);
+  } // doLearned
 } // end loop
 
 void loop(){ // main loop reads success table and performs actions
-
-int freespace = freeMemory(); Serial.print("free memory= "); Serial.println(freespace);
-
-doTraining(); // trial and error training with distance reinforcement
-
-freespace = freeMemory(); Serial.print("free memory= "); Serial.println(freespace);
-
-doLearnedBehavior(); // do longest step 10 times to make robot crawl
-
-myServo(servo1,0,1,8,1);
-
-myServo(servo2,0,1,8,1);
-
-Serial.print("end program ");
-
-delay(2000);
-
-exit(0); // quit program
-
+  int freespace = freeMemory(); Serial.print("free memory= "); Serial.println(freespace);
+  doTraining(); // trial and error training with distance reinforcement
+  freespace = freeMemory(); Serial.print("free memory= "); Serial.println(freespace);
+  doLearnedBehavior(); // do longest step 10 times to make robot crawl
+  myServo(servo1,0,1,8,1);
+  myServo(servo2,0,1,8,1);
+  Serial.print("end program ");
+  delay(2000);
+  exit(0); // quit program
 } // end main loop
 
 void myServo(Servo servo,int newAngle,int angleInc,int incDelay,int servoNum) {
