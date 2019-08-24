@@ -101,26 +101,27 @@ void doTraining() {
     spos2 = random(160);
     spos3 = random(160);
     spos4 = random(160);
-    myServo(servo1,spos1,1,7,1);
+    myServo(servo1,spos1,1,7,1);  // (Servo servo,int newAngle,int angleInc,int incDelay,int servoNum)
     myServo(servo2,spos2,1,7,1);
     myServo(servo1,spos3,1,7,1);
     myServo(servo2,spos4,1,7,1);
     distCurrent = getDistance(); // get distance - note this is not always accurate so sometimes robot will just claw the air
-    distDifference = distCurrent - distPrevious;
-    distPrevious = distCurrent;
+    distDifference = distCurrent - distPrevious;   //NOT USED
+    distPrevious = distCurrent;                    //NOT USED
     Serial.print(" episode = ");Serial.print(episode);
     // Serial.print(" state = ");Serial.print(state);
     Serial.print(" spos1 = ");Serial.print(spos1);
     Serial.print(" spos2 = ");Serial.print(spos2);
     Serial.print(" spos3 = ");Serial.print(spos3);
     Serial.print(" spos4 = ");Serial.print(spos4);
-    Serial.print(" distance = ");Serial.println(distDifference);
-    if ( distCurrent > distanceHigh) { // if current distancee is greater than highest then replace postions
+    Serial.print(" distance = ");Serial.println();
+    if ( distCurrent > distanceHigh) { // if current distance is greater than previous then replace positions
+      //HERE SHOULD BE DISTDIFFERENCE > DISTANCE HIGH 
       spos1High = spos1; // servo position 1
       spos2High = spos2; // servo position 2
       spos3High = spos3; // servo position 3
       spos4High = spos4; // servo position 4
-      distanceHigh = distCurrent;
+      distanceHigh = distCurrent;   //SHOULD BE DISTDIFFERENCE
       // distPrevious = distCurrent;
     }
   } // end each episode
