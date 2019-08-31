@@ -339,45 +339,25 @@ void InputToOutput(float In1,float In2, float In3, float In4, float In5)
     for ( j = 0 ; j < InputNodes ; j++ ) {
       Accum += TestInput[j] * HiddenWeights[j][i] ;
     }
-
-Hidden[i] = 1.0 / (1.0 + exp(-Accum)) ;
-
-}
-
-/******************************************************************
-
-Compute output layer activations and calculate errors
-
-******************************************************************/
-
-for ( i = 0 ; i < OutputNodes ; i++ ) {
-
-Accum = OutputWeights[HiddenNodes][i] ;
-
-for ( j = 0 ; j < HiddenNodes ; j++ ) {
-
-Accum += Hidden[j] * OutputWeights[j][i] ;
-
-}
-
-Output[i] = 1.0 / (1.0 + exp(-Accum)) ;
-
-}
-
-//#ifdef DEBUG
-
-Serial.print (" Output ");
-
-for ( i = 0 ; i < OutputNodes ; i++ ) {
-
-Serial.print (Output[i], 5);
-
-Serial.print (" ");
-
-}
-
-//#endif
-
+    Hidden[i] = 1.0 / (1.0 + exp(-Accum)) ;
+  }
+  /******************************************************************
+  Compute output layer activations and calculate errors
+  ******************************************************************/
+  for ( i = 0 ; i < OutputNodes ; i++ ) {
+    Accum = OutputWeights[HiddenNodes][i] ;
+    for ( j = 0 ; j < HiddenNodes ; j++ ) {
+      Accum += Hidden[j] * OutputWeights[j][i] ;
+    }
+    Output[i] = 1.0 / (1.0 + exp(-Accum)) ;
+  }
+  //#ifdef DEBUG
+  Serial.print (" Output ");
+  for ( i = 0 ; i < OutputNodes ; i++ ) {
+    Serial.print (Output[i], 5);
+    Serial.print (" ");
+  }
+  //#endif
 }
 
 //TRAINS THE NEURAL NETWORK
@@ -426,82 +406,45 @@ void train_nn() {
       RandomizedIndex[p] = RandomizedIndex[q] ;
       RandomizedIndex[q] = r ;
     }
+    Error = 0.0 ;
 
-Error = 0.0 ;
-
-/******************************************************************
-
-Cycle through each training pattern in the randomized order
-
-******************************************************************/
-
-for ( q = 0 ; q < PatternCount ; q++ ) {
-
-p = RandomizedIndex[q];
-
-/******************************************************************
-
-Compute hidden layer activations
-
-******************************************************************/
-
-//digitalWrite(LEDYEL, LOW);
-
-for ( i = 0 ; i < HiddenNodes ; i++ ) {
-
-Accum = HiddenWeights[InputNodes][i] ;
-
-for ( j = 0 ; j < InputNodes ; j++ ) {
-
-Accum += Input[p][j] * HiddenWeights[j][i] ;
-
-}
-
-Hidden[i] = 1.0 / (1.0 + exp(-Accum)) ;
-
-}
-
-//digitalWrite(LEDYEL, HIGH);
-
-/******************************************************************
-
-Compute output layer activations and calculate errors
-
-******************************************************************/
-
-//digitalWrite(LEDRED, LOW);
-
-for ( i = 0 ; i < OutputNodes ; i++ ) {
-
-Accum = OutputWeights[HiddenNodes][i] ;
-
-for ( j = 0 ; j < HiddenNodes ; j++ ) {
-
-Accum += Hidden[j] * OutputWeights[j][i] ;
-
-}
-
-Output[i] = 1.0 / (1.0 + exp(-Accum)) ;
-
-OutputDelta[i] = (Target[p][i] - Output[i]) * Output[i] * (1.0 - Output[i]) ;
-
-Error += 0.5 * (Target[p][i] - Output[i]) * (Target[p][i] - Output[i]) ;
-
-}
-
-// Serial.println(Output[0]*100);
-
-//digitalWrite(LEDRED, HIGH);
-
-/******************************************************************
-
-Backpropagate errors to hidden layer
-
-******************************************************************/
-
-//digitalWrite(LEDYEL, LOW);
-
-for ( i = 0 ; i < HiddenNodes ; i++ ) {
+  /******************************************************************
+  Cycle through each training pattern in the randomized order
+  ******************************************************************/
+  for ( q = 0 ; q < PatternCount ; q++ ) {
+    p = RandomizedIndex[q];
+    /******************************************************************
+    Compute hidden layer activations
+    ******************************************************************/
+    //digitalWrite(LEDYEL, LOW);
+    for ( i = 0 ; i < HiddenNodes ; i++ ) {
+      Accum = HiddenWeights[InputNodes][i] ;
+      for ( j = 0 ; j < InputNodes ; j++ ) {
+        Accum += Input[p][j] * HiddenWeights[j][i] ;
+      }
+      Hidden[i] = 1.0 / (1.0 + exp(-Accum)) ;
+    }
+    //digitalWrite(LEDYEL, HIGH);
+    /******************************************************************
+    Compute output layer activations and calculate errors
+    ******************************************************************/
+    //digitalWrite(LEDRED, LOW);
+    for ( i = 0 ; i < OutputNodes ; i++ ) {
+      Accum = OutputWeights[HiddenNodes][i] ;
+      for ( j = 0 ; j < HiddenNodes ; j++ ) {
+        Accum += Hidden[j] * OutputWeights[j][i] ;
+      }
+      Output[i] = 1.0 / (1.0 + exp(-Accum)) ;
+      OutputDelta[i] = (Target[p][i] - Output[i]) * Output[i] * (1.0 - Output[i]) ;
+      Error += 0.5 * (Target[p][i] - Output[i]) * (Target[p][i] - Output[i]) ;
+    }
+    // Serial.println(Output[0]*100);
+    //digitalWrite(LEDRED, HIGH);
+    /******************************************************************
+    Backpropagate errors to hidden layer
+    ******************************************************************/
+    //digitalWrite(LEDYEL, LOW);
+    for ( i = 0 ; i < HiddenNodes ; i++ ) {
 
 Accum = 0.0 ;
 
