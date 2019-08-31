@@ -10,8 +10,7 @@
 // algorithm: this robot uses a NN to train on training data, 
 //  then practice moving with the NN and then repeating the most successful movement (learned behavior)
 //  this algorithm is better than my previous RL algorithms because once the NN is trained, 
-//  then any random servo positions between
-//  0 and servoMax can be used.
+//  then any random servo positions between 0 and servoMax can be used.
 //  To make this NN work, it is all in setting up the input and training arrays. 
 //  There may be better ways of doing then I have done here.
 //  Also you can play with the various NN settings.
@@ -88,11 +87,14 @@ const float Input [PatternCount][InputNodes] {
   { 1,1,0,0,0},
   { 1,1,0,1,0},
   { 1,1,1,0,0},
-  { 1,1,1,1,0},
+  { 1,1,1,1,0},  
   { 0,1,0,0,0},
   { 0,1,0,1,0},
   { 0,1,1,0,0},
   { 0,1,1,1,1}};
+ 
+//SEEMS THAT HERE THE MOST IMPORTANT IS THE LAST COLUMN THAT GIVES THE OUPUT,
+//NOT SURE ABOUT THE REST
 
 /******************************************************************
 End Network Configuration
@@ -188,7 +190,7 @@ void doLearnedBehavior() {
       
 void loop(){ // main loop reads success table and performs actions
   int freespace = freeMemory(); Serial.print("free memory= "); Serial.println(freespace); // just wanted to see if memory ever became a problem
-  drive_nn();
+  drive_nn();   //THE ROBOT MOVES AND TEACHES THE ANN
   freespace = freeMemory(); Serial.print("free memory= "); Serial.println(freespace);
   doLearnedBehavior();
   myServo(servo1,0,1,8,1);
