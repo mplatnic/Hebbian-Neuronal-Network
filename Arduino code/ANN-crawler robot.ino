@@ -7,11 +7,14 @@
 // Sonar: the ultrasonic module should be placed facing the rear of the robot as it measures movement of the robot away from some
 // solid structure like a wall.
 // goal: move between two arm positions that produce the greatest distance, without using arrays to store results, only NN
-// algorithm: this robot uses a NN to train on training data, then practice moving with the NN and then repeating the most successful movement (learned behavior)
-// this algorithm is better than my previous RL algorithms because once the NN is trained, then any random servo positions between
-// 0 and servoMax can be used.
-// To make this NN work, it is all in setting up the input and training arrays. There may be better ways of doing than I have done here.
-// Also you can play with the various NN settings.
+// algorithm: this robot uses a NN to train on training data, 
+//  then practice moving with the NN and then repeating the most successful movement (learned behavior)
+//  this algorithm is better than my previous RL algorithms because once the NN is trained, 
+//  then any random servo positions between
+//  0 and servoMax can be used.
+//  To make this NN work, it is all in setting up the input and training arrays. 
+//  There may be better ways of doing then I have done here.
+//  Also you can play with the various NN settings.
 // Note: while this algorithm is very entertaining, it seems that a simple Reinforment Learning algorithm is just as accurate without all the complexity of the NN. But it
 // it is a fun application of a NN. Perhaps someone can find a better way to fit the application to a NN - perhaps by applying the Distance reading to the back-propagation
 // rather than as an input to NN.
