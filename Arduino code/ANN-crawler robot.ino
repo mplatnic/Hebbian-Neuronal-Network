@@ -77,15 +77,16 @@ float Target[PatternCount][OutputNodes] = { // these are the successful outputs 
   { 0 }, { 0 }, { 0 }, { 1 }, { 0 }, { 0 }, { 0,}, { 1 }, { 0 }, { 0 }, { 0 }, { 0 }, { 0 }, { 0 }, { 0 }, { 1 } };
 const float Input [PatternCount][InputNodes] {
   { 0,0,0,0,0}, // colum 1 and 2 holds servo1 positions and column 3 and 4 holds servo 2 positions - col 5 holds distance
-  { 0,0,0,1,0},
-  { 0,0,1,0,0},
-  { 0,0,1,1,1},
-  { 1,0,0,0,0},
-  { 1,0,0,1,0},
-  { 1,0,1,0,0},
-  { 1,0,1,1,1},
-  { 1,1,0,0,0},
-  { 1,1,0,1,0},
+                // all is high position, it cannot move
+  { 0,0,0,1,0}, // servo1 close to the body in high position -> cannot move
+  { 0,0,1,0,0}, // servo2 going up -> cannot move
+  { 0,0,1,1,1}, // servo2 down.. possible
+  { 1,0,0,0,0}, // servo1 from down to up -> cannot move
+  { 1,0,0,1,0}, // ??
+  { 1,0,1,0,0}, // all going up -> cannot move
+  { 1,0,1,1,1}, // possible
+  { 1,1,0,0,0}, // servo1 down, 2 up.... ??
+  { 1,1,0,1,0}, // ??
   { 1,1,1,0,0},
   { 1,1,1,1,0},  
   { 0,1,0,0,0},
@@ -93,9 +94,6 @@ const float Input [PatternCount][InputNodes] {
   { 0,1,1,0,0},
   { 0,1,1,1,1}};
  
-//SEEMS THAT HERE THE MOST IMPORTANT IS THE LAST COLUMN THAT GIVES THE OUPUT,
-//NOT SURE ABOUT THE REST
-
 /******************************************************************
 End Network Configuration
 ******************************************************************/
