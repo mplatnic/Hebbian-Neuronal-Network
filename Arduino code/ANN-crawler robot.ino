@@ -78,18 +78,19 @@ float Target[PatternCount][OutputNodes] = { // these are the successful outputs 
 const float Input [PatternCount][InputNodes] {
   { 0,0,0,0,0}, // colum 1 and 2 holds servo1 positions and column 3 and 4 holds servo 2 positions - col 5 holds distance
                 // all is high position, it cannot move
+                // to move we need servo1 down (1) and servo2 up (0)
   { 0,0,0,1,0}, // servo1 close to the body in high position -> cannot move
   { 0,0,1,0,0}, // servo2 going up -> cannot move
-  { 0,0,1,1,1}, // servo2 down.. possible
+  { 0,0,1,1,1}, // servo2 down -> cannot move if long arm 2
   { 1,0,0,0,0}, // servo1 from down to up -> cannot move
-  { 1,0,0,1,0}, // ??
+  { 1,0,0,1,0}, // would tend to go backward..
   { 1,0,1,0,0}, // all going up -> cannot move
-  { 1,0,1,1,1}, // possible
-  { 1,1,0,0,0}, // servo1 down, 2 up.... ??
+  { 1,0,1,1,1}, // possible... why not..
+  { 1,1,0,0,0}, // servo1 down, 2 up -> can move ???
   { 1,1,0,1,0}, // ??
-  { 1,1,1,0,0},
-  { 1,1,1,1,0},  
-  { 0,1,0,0,0},
+  { 1,1,1,0,0}, // go back..
+  { 1,1,1,1,0}, // -> cannot move
+  { 0,1,0,0,0}, // ??
   { 0,1,0,1,0},
   { 0,1,1,0,0},
   { 0,1,1,1,1}};
