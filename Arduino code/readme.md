@@ -1,5 +1,8 @@
 Robotics using Arduino and ANN
 
+To check:
+openlab.makeblock.com/topic/5889593b8de529de3aa45e73
+
 Example of Robots learning to walk using ANN:
 4 legs: https://www.youtube.com/watch?v=JO1rUVuv_68
 https://www.youtube.com/watch?v=MeIh17FivVM  , https://www.youtube.com/watch?v=w6vF1CQLUpY
