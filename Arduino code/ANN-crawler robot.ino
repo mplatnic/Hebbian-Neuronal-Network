@@ -117,6 +117,9 @@ long previousMillis = 0;
 unsigned long currentMillis;
 long loopTimer = 10; // do the main processing every 10 milliseconds (probably not necessary to use this, I just copied it in from another program)
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SETUP
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void setup (){
   Serial.begin(115200);
@@ -177,8 +180,12 @@ void doLearnedBehavior() {
     myServo(servo1,spos3High,1,7,1);
     myServo(servo2,spos4High,1,7,1);
   } // doLearned
-} // end loop
+} // end doLearnedBehavior
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LOOP
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      
 void loop(){ // main loop reads success table and performs actions
   int freespace = freeMemory(); Serial.print("free memory= "); Serial.println(freespace); // just wanted to see if memory ever became a problem
   drive_nn();
@@ -373,7 +380,7 @@ void train_nn() {
     for ( j = 0 ; j <= InputNodes ; j++ ) {
       ChangeHiddenWeights[j][i] = 0.0 ;
       Rando = float(random(100)) / 100;
-      HiddenWeights[j][i] = 2.0 * ( Rando - 0.5 ) * InitialWeightMax ;
+      HiddenWeights[j][i] = 2.0 * ( Rando - 0.5 ) * InitialWeightMax ;  //result is [-1,+1]*InitialWeightMax
     }
   }
 
@@ -445,131 +452,67 @@ void train_nn() {
     ******************************************************************/
     //digitalWrite(LEDYEL, LOW);
     for ( i = 0 ; i < HiddenNodes ; i++ ) {
-
-Accum = 0.0 ;
-
-for ( j = 0 ; j < OutputNodes ; j++ ) {
-
-Accum += OutputWeights[i][j] * OutputDelta[j] ;
-
-}
-
-HiddenDelta[i] = Accum * Hidden[i] * (1.0 - Hidden[i]) ;
-
-}
-
-//digitalWrite(LEDYEL, HIGH);
-
-/******************************************************************
-
-Update Inner-->Hidden Weights
-
-******************************************************************/
-
-//digitalWrite(LEDRED, LOW);
-
-for ( i = 0 ; i < HiddenNodes ; i++ ) {
-
-ChangeHiddenWeights[InputNodes][i] = LearningRate * HiddenDelta[i] + Momentum * ChangeHiddenWeights[InputNodes][i] ;
-
-HiddenWeights[InputNodes][i] += ChangeHiddenWeights[InputNodes][i] ;
-
-for ( j = 0 ; j < InputNodes ; j++ ) {
-
-ChangeHiddenWeights[j][i] = LearningRate * Input[p][j] * HiddenDelta[i] + Momentum * ChangeHiddenWeights[j][i];
-
-HiddenWeights[j][i] += ChangeHiddenWeights[j][i] ;
-
-}
-
-}
-
-//digitalWrite(LEDRED, HIGH);
-
-/******************************************************************
-
-Update Hidden-->Output Weights
-
-******************************************************************/
-
-//digitalWrite(LEDYEL, LOW);
-
-for ( i = 0 ; i < OutputNodes ; i ++ ) {
-
-ChangeOutputWeights[HiddenNodes][i] = LearningRate * OutputDelta[i] + Momentum * ChangeOutputWeights[HiddenNodes][i] ;
-
-OutputWeights[HiddenNodes][i] += ChangeOutputWeights[HiddenNodes][i] ;
-
-for ( j = 0 ; j < HiddenNodes ; j++ ) {
-
-ChangeOutputWeights[j][i] = LearningRate * Hidden[j] * OutputDelta[i] + Momentum * ChangeOutputWeights[j][i] ;
-
-OutputWeights[j][i] += ChangeOutputWeights[j][i] ;
-
-}
-
-}
-
-//digitalWrite(LEDYEL, HIGH);
-
-}
-
-/******************************************************************
-
-Every 100 cycles send data to terminal for display and draws the graph on OLED
-
-******************************************************************/
-
-ReportEvery1000 = ReportEvery1000 - 1;
-
-if (ReportEvery1000 == 0)
-
-{
-
-int graphNum = TrainingCycle / 100;
-
-int graphE1 = Error * 1000;
-
-int graphE = map(graphE1, 3, 80, 47, 0);
-
-Serial.print ("TrainingCycle: ");
-
-Serial.print (TrainingCycle);
-
-Serial.print (" Error = ");
-
-Serial.println (Error, 5);
-
-toTerminal();
-
-if (TrainingCycle == 1)
-
-{
-
-ReportEvery1000 = 99;
-
-}
-
-else
-
-{
-
-ReportEvery1000 = 100;
-
-}
-
-}
-
-/******************************************************************
-
-If error rate is less than pre-determined threshold then end
-
-******************************************************************/
-
-if ( Error < Success ) break ;
-
-}
-
-Serial.println("End training.");
-
-}
+      Accum = 0.0 ;
+      for ( j = 0 ; j < OutputNodes ; j++ ) {
+        Accum += OutputWeights[i][j] * OutputDelta[j] ;
+      }
+      HiddenDelta[i] = Accum * Hidden[i] * (1.0 - Hidden[i]) ;
+    }
+    //digitalWrite(LEDYEL, HIGH);
+    /******************************************************************
+    Update Inner-->Hidden Weights
+    ******************************************************************/
+    //digitalWrite(LEDRED, LOW);
+    for ( i = 0 ; i < HiddenNodes ; i++ ) {
+      ChangeHiddenWeights[InputNodes][i] = LearningRate * HiddenDelta[i] + Momentum * ChangeHiddenWeights[InputNodes][i] ;
+      HiddenWeights[InputNodes][i] += ChangeHiddenWeights[InputNodes][i] ;
+      for ( j = 0 ; j < InputNodes ; j++ ) {
+        ChangeHiddenWeights[j][i] = LearningRate * Input[p][j] * HiddenDelta[i] + Momentum * ChangeHiddenWeights[j][i];
+        HiddenWeights[j][i] += ChangeHiddenWeights[j][i] ;
+      }
+    }
+    //digitalWrite(LEDRED, HIGH);
+    /******************************************************************
+    Update Hidden-->Output Weights
+    ******************************************************************/
+    //digitalWrite(LEDYEL, LOW);
+    for ( i = 0 ; i < OutputNodes ; i ++ ) {
+      ChangeOutputWeights[HiddenNodes][i] = LearningRate * OutputDelta[i] + Momentum * ChangeOutputWeights[HiddenNodes][i] ;
+      OutputWeights[HiddenNodes][i] += ChangeOutputWeights[HiddenNodes][i] ;
+      for ( j = 0 ; j < HiddenNodes ; j++ ) {
+        ChangeOutputWeights[j][i] = LearningRate * Hidden[j] * OutputDelta[i] + Momentum * ChangeOutputWeights[j][i] ;
+        OutputWeights[j][i] += ChangeOutputWeights[j][i] ;
+      }
+    }
+    //digitalWrite(LEDYEL, HIGH);
+  }
+  /******************************************************************
+  Every 100 cycles send data to terminal for display and draws the graph on OLED
+  ******************************************************************/
+  ReportEvery1000 = ReportEvery1000 - 1;
+  if (ReportEvery1000 == 0)
+    {
+    int graphNum = TrainingCycle / 100;
+    int graphE1 = Error * 1000;
+    int graphE = map(graphE1, 3, 80, 47, 0);
+    Serial.print ("TrainingCycle: ");
+    Serial.print (TrainingCycle);
+    Serial.print (" Error = ");
+    Serial.println (Error, 5);
+    toTerminal();
+    if (TrainingCycle == 1)
+      {
+      ReportEvery1000 = 99;
+      }
+    else
+      {
+      ReportEvery1000 = 100;
+      }
+    }
+    /******************************************************************
+    If error rate is less than pre-determined threshold then end
+    ******************************************************************/
+    if ( Error < Success ) break ;
+  }
+  Serial.println("End training.");
+ }
