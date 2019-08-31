@@ -13,7 +13,8 @@ Crawling:
 https://www.youtube.com/watch?time_continue=56&v=f1lv-Kojotk
 (Code available on https://www.instructables.com/id/Q-Learning-machine-Learning-Crawler/)
 
-
+3D printing crawling robot:
+https://www.instructables.com/id/Critter-3D-Printed-Crawling-Arduino-Robot/
 
 Work based on http://robotics.hobbizine.com/arduinoann.html
 
