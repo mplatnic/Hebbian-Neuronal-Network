@@ -220,198 +220,125 @@ void drive_nn()
     float TestInput[] = {0, 0};
     if(currentMillis - previousMillis > loopTimer) { //do calculation every 5 or more milliseconds
     // Serial.print("currentMillis= ");Serial.println(currentMillis);
-    int randomNo = random(servoMax);
-    float pos1 = map(randomNo,0,servoMax,0,100); // randomly get servo 1 position between 0 and servoMax
-    pos1 = pos1/100;
-    randomNo = random(servoMax);
-    float pos2 = map(randomNo,0,servoMax,0,100);
-    pos2 = pos2/100;
-    randomNo = random(servoMax);
-    float pos3 = map(randomNo,0,servoMax,0,100);
-    pos3 = pos3/100;
-    randomNo = random(servoMax);
-    float pos4= map(randomNo,0,servoMax,0,100);
-    pos4 = pos4/100;
-    // move robot with new random positions
-    myServo(servo1,pos1 * servoMax,1,7,1);
-    myServo(servo2,pos2 * servoMax,1,7,1);
-    myServo(servo1,pos3 * servoMax,1,7,1);
-    myServo(servo2,pos4 * servoMax,1,7,1);
-    /////////////////////////
-    // get distance for pos5
-    /////////////////////////
-    //float temp = getDistance(); // get distance
-    distCurrent = getDistance(); // get distance
-    distDifference = distCurrent - distPrevious;
-    distPrevious = distCurrent;
-    Serial.print("===> distDifference = ");Serial.println(distDifference);
-    // if ((pos1 < .70) && (pos3 > .8)) temp = 3; //testing distance
-    // else temp = 0;
-    //////////////////////////////////////////////////////////////
-    // may have to increase range to make distance more powerful
-    /////////////////////////////////////////////////////////////
-    float temp = map(distDifference,0,10,0,100);
-    float pos5 = temp/100;
-    InputToOutput(pos1,pos2,pos3,pos4,pos5); //input to NN to get Output[]
-    pos1 = pos1 * servoMax; pos2 = pos2 * servoMax; pos3 = pos3 * servoMax; pos4 = pos4 * servoMax; //pos5 = pos5 * servoMax;
-    Serial.print(" pos1= ");Serial.print(pos1);Serial.print(" pos2= ");Serial.print(pos2);Serial.print(" pos3= ");Serial.print(pos3);
-    Serial.print(" pos4= ");Serial.print(pos4);Serial.print(" pos5= ");Serial.print(pos5);
-    Serial.print("Output from NN =");Serial.println(Output[0]);
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // IF output is greater than .10 then use those positions to move robot and store the highest output positions achieved
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-if (Output[0] > .10) {
-
-if (Output[0] > highOutput) {
-
-highOutput = Output[0];
-
-spos1High = pos1;
-
-spos2High = pos2;
-
-spos3High = pos3;
-
-spos4High = pos4;
-
-Serial.print(" --------> spos1High= ");Serial.print(spos1High);Serial.print(" spos2High= ");Serial.print(spos2High);Serial.print(" spos3High= ");Serial.print(spos3High);
-
-Serial.print(" spos4High= ");Serial.print(spos4High);Serial.print(" Output= ");Serial.println(Output[0]);
-
-}
-
-}
-
-previousMillis = currentMillis;
-
-} // end millis loop
-
-}
-
+      int randomNo = random(servoMax);
+      float pos1 = map(randomNo,0,servoMax,0,100); // randomly get servo 1 position between 0 and servoMax
+      pos1 = pos1/100;
+      randomNo = random(servoMax);
+      float pos2 = map(randomNo,0,servoMax,0,100); // to test float pos2 = map(randomNo,0,servoMax,0,1); instead of 100
+      pos2 = pos2/100;
+      randomNo = random(servoMax);
+      float pos3 = map(randomNo,0,servoMax,0,100);
+      pos3 = pos3/100;
+      randomNo = random(servoMax);
+      float pos4= map(randomNo,0,servoMax,0,100);
+      pos4 = pos4/100;
+      // move robot with new random positions
+      myServo(servo1,pos1 * servoMax,1,7,1);
+      myServo(servo2,pos2 * servoMax,1,7,1);
+      myServo(servo1,pos3 * servoMax,1,7,1);
+      myServo(servo2,pos4 * servoMax,1,7,1);
+      /////////////////////////
+      // get distance for pos5
+      /////////////////////////
+      //float temp = getDistance(); // get distance
+      distCurrent = getDistance(); // get distance
+      distDifference = distCurrent - distPrevious;
+      distPrevious = distCurrent;
+      Serial.print("===> distDifference = ");Serial.println(distDifference);
+      // if ((pos1 < .70) && (pos3 > .8)) temp = 3; //testing distance
+      // else temp = 0;
+      //////////////////////////////////////////////////////////////
+      // may have to increase range to make distance more powerful
+      /////////////////////////////////////////////////////////////
+      float temp = map(distDifference,0,10,0,100);
+      float pos5 = temp/100;
+      InputToOutput(pos1,pos2,pos3,pos4,pos5); //input to NN to get Output[]
+      pos1 = pos1 * servoMax; pos2 = pos2 * servoMax; pos3 = pos3 * servoMax; pos4 = pos4 * servoMax; //pos5 = pos5 * servoMax;
+      Serial.print(" pos1= ");Serial.print(pos1);Serial.print(" pos2= ");Serial.print(pos2);Serial.print(" pos3= ");Serial.print(pos3);
+      Serial.print(" pos4= ");Serial.print(pos4);Serial.print(" pos5= ");Serial.print(pos5);
+      Serial.print("Output from NN =");Serial.println(Output[0]);
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // IF output is greater than .10 then use those positions to move robot and store the highest output positions achieved
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      if (Output[0] > .10) {
+        if (Output[0] > highOutput) {
+          highOutput = Output[0];
+          spos1High = pos1;
+          spos2High = pos2;
+          spos3High = pos3;
+          spos4High = pos4;
+          Serial.print(" --------> spos1High= ");Serial.print(spos1High);Serial.print(" spos2High= ");Serial.print(spos2High);Serial.print(" spos3High= ");Serial.print(spos3High);
+          Serial.print(" spos4High= ");Serial.print(spos4High);Serial.print(" Output= ");Serial.println(Output[0]);
+        }
+      }
+      previousMillis = currentMillis;
+    } // end millis loop
+  }
 } //end of drive_nn() function
 
 //DISPLAYS INFORMATION WHILE TRAINING
 
 void toTerminal()
-
 {
-
-for ( p = 0 ; p < PatternCount ; p++ ) {
-
-Serial.println();
-
-Serial.print (" Training Pattern: ");
-
-Serial.println (p);
-
-Serial.print (" Input ");
-
-for ( i = 0 ; i < InputNodes ; i++ ) {
-
-Serial.print (Input[p][i], DEC);
-
-Serial.print (" ");
-
-}
-
-Serial.print (" Target ");
-
-for ( i = 0 ; i < OutputNodes ; i++ ) {
-
-Serial.print (Target[p][i], DEC);
-
-Serial.print (" ");
-
-}
-
-/******************************************************************
-
-Compute hidden layer activations
-
-******************************************************************/
-
-for ( i = 0 ; i < HiddenNodes ; i++ ) {
-
-Accum = HiddenWeights[InputNodes][i] ;
-
-for ( j = 0 ; j < InputNodes ; j++ ) {
-
-Accum += Input[p][j] * HiddenWeights[j][i] ;
-
-}
-
-Hidden[i] = 1.0 / (1.0 + exp(-Accum)) ; // activation function
-
-}
-
-/******************************************************************
-
-Compute output layer activations and calculate errors
-
-******************************************************************/
-
-for ( i = 0 ; i < OutputNodes ; i++ ) {
-
-Accum = OutputWeights[HiddenNodes][i] ;
-
-for ( j = 0 ; j < HiddenNodes ; j++ ) {
-
-Accum += Hidden[j] * OutputWeights[j][i] ;
-
-}
-
-Output[i] = 1.0 / (1.0 + exp(-Accum)) ;
-
-}
-
-Serial.print (" Output ");
-
-for ( i = 0 ; i < OutputNodes ; i++ ) {
-
-Serial.print (Output[i], 5);
-
-Serial.print (" ");
-
-}
-
-}
-
+  for ( p = 0 ; p < PatternCount ; p++ ) {
+  Serial.println();
+  Serial.print (" Training Pattern: ");
+  Serial.println (p);
+  Serial.print (" Input ");
+  for ( i = 0 ; i < InputNodes ; i++ ) {
+    Serial.print (Input[p][i], DEC);
+    Serial.print (" ");
+    }
+    Serial.print (" Target ");
+    for ( i = 0 ; i < OutputNodes ; i++ ) {
+      Serial.print (Target[p][i], DEC);
+      Serial.print (" ");
+    }
+    /******************************************************************
+    Compute hidden layer activations
+    ******************************************************************/
+    for ( i = 0 ; i < HiddenNodes ; i++ ) {
+      Accum = HiddenWeights[InputNodes][i] ;
+      for ( j = 0 ; j < InputNodes ; j++ ) {
+      Accum += Input[p][j] * HiddenWeights[j][i] ;
+    }
+    Hidden[i] = 1.0 / (1.0 + exp(-Accum)) ; // activation function
+  }
+  /******************************************************************
+  Compute output layer activations and calculate errors
+  ******************************************************************/
+  for ( i = 0 ; i < OutputNodes ; i++ ) {
+    Accum = OutputWeights[HiddenNodes][i] ;
+    for ( j = 0 ; j < HiddenNodes ; j++ ) {
+      Accum += Hidden[j] * OutputWeights[j][i] ;
+    }
+    Output[i] = 1.0 / (1.0 + exp(-Accum)) ;
+  }
+  Serial.print (" Output ");
+  for ( i = 0 ; i < OutputNodes ; i++ ) {
+    Serial.print (Output[i], 5);
+    Serial.print (" ");
+  }
+ }
 }
 
 void InputToOutput(float In1,float In2, float In3, float In4, float In5)
-
 {
-
-float TestInput[] = {0,0,0,0,0};
-
-// Serial.print("In1 = ");Serial.println(In1);
-
-TestInput[0] = In1; //first servo arm position - servo 1
-
-TestInput[1] = In2; //first servo arm position - servo 2
-
-TestInput[2] = In3; // 2nd servo arm position - servo 1
-
-TestInput[3] = In4; // 2nd servo arm position - servo 2
-
-TestInput[4] = In5; // distance
-
-/******************************************************************
-
-Compute hidden layer activations
-
-******************************************************************/
-
-for ( i = 0 ; i < HiddenNodes ; i++ ) {
-
-Accum = HiddenWeights[InputNodes][i] ;
-
-for ( j = 0 ; j < InputNodes ; j++ ) {
-
-Accum += TestInput[j] * HiddenWeights[j][i] ;
-
-}
+  float TestInput[] = {0,0,0,0,0};
+  // Serial.print("In1 = ");Serial.println(In1);
+  TestInput[0] = In1; //first servo arm position - servo 1
+  TestInput[1] = In2; //first servo arm position - servo 2
+  TestInput[2] = In3; // 2nd servo arm position - servo 1
+  TestInput[3] = In4; // 2nd servo arm position - servo 2
+  TestInput[4] = In5; // distance
+  /******************************************************************
+  Compute hidden layer activations
+  ******************************************************************/
+  for ( i = 0 ; i < HiddenNodes ; i++ ) {
+    Accum = HiddenWeights[InputNodes][i] ;
+    for ( j = 0 ; j < InputNodes ; j++ ) {
+      Accum += TestInput[j] * HiddenWeights[j][i] ;
+    }
 
 Hidden[i] = 1.0 / (1.0 + exp(-Accum)) ;
 
@@ -456,88 +383,49 @@ Serial.print (" ");
 //TRAINS THE NEURAL NETWORK
 
 void train_nn() {
+  /******************************************************************
+  Initialize HiddenWeights and ChangeHiddenWeights
+  ******************************************************************/
+  int prog_start = 0;
+  Serial.println("start training...");
+  //digitalWrite(LEDYEL, LOW);
+  for ( i = 0 ; i < HiddenNodes ; i++ ) {
+    for ( j = 0 ; j <= InputNodes ; j++ ) {
+      ChangeHiddenWeights[j][i] = 0.0 ;
+      Rando = float(random(100)) / 100;
+      HiddenWeights[j][i] = 2.0 * ( Rando - 0.5 ) * InitialWeightMax ;
+    }
+  }
 
-/******************************************************************
-
-Initialize HiddenWeights and ChangeHiddenWeights
-
-******************************************************************/
-
-int prog_start = 0;
-
-Serial.println("start training...");
-
-//digitalWrite(LEDYEL, LOW);
-
-for ( i = 0 ; i < HiddenNodes ; i++ ) {
-
-for ( j = 0 ; j <= InputNodes ; j++ ) {
-
-ChangeHiddenWeights[j][i] = 0.0 ;
-
-Rando = float(random(100)) / 100;
-
-HiddenWeights[j][i] = 2.0 * ( Rando - 0.5 ) * InitialWeightMax ;
-
-}
-
-}
-
-//digitalWrite(LEDYEL, HIGH);
-
-/******************************************************************
-
-Initialize OutputWeights and ChangeOutputWeights
-
-******************************************************************/
-
-//digitalWrite(LEDRED, LOW);
-
-for ( i = 0 ; i < OutputNodes ; i ++ ) {
-
-for ( j = 0 ; j <= HiddenNodes ; j++ ) {
-
-ChangeOutputWeights[j][i] = 0.0 ;
-
-Rando = float(random(100)) / 100;
-
-OutputWeights[j][i] = 2.0 * ( Rando - 0.5 ) * InitialWeightMax ;
-
-}
-
-}
-
-//digitalWrite(LEDRED, HIGH);
-
-//SerialUSB.println("Initial/Untrained Outputs: ");
-
-//toTerminal();
-
-/******************************************************************
-
-Begin training
-
-******************************************************************/
-
-for ( TrainingCycle = 1 ; TrainingCycle < 2147483647 ; TrainingCycle++) {
-
-/******************************************************************
-
-Randomize order of training patterns
-
-******************************************************************/
-
-for ( p = 0 ; p < PatternCount ; p++) {
-
-q = random(PatternCount);
-
-r = RandomizedIndex[p] ;
-
-RandomizedIndex[p] = RandomizedIndex[q] ;
-
-RandomizedIndex[q] = r ;
-
-}
+  //digitalWrite(LEDYEL, HIGH);
+  /******************************************************************
+  Initialize OutputWeights and ChangeOutputWeights
+  ******************************************************************/
+  //digitalWrite(LEDRED, LOW);
+  for ( i = 0 ; i < OutputNodes ; i ++ ) {
+    for ( j = 0 ; j <= HiddenNodes ; j++ ) {
+      ChangeOutputWeights[j][i] = 0.0 ;
+      Rando = float(random(100)) / 100;
+      OutputWeights[j][i] = 2.0 * ( Rando - 0.5 ) * InitialWeightMax ;
+    }
+  }
+  //digitalWrite(LEDRED, HIGH);
+  //SerialUSB.println("Initial/Untrained Outputs: ");
+  //toTerminal();
+  
+  /******************************************************************
+  Begin training
+  ******************************************************************/
+  for ( TrainingCycle = 1 ; TrainingCycle < 2147483647 ; TrainingCycle++) {
+  /******************************************************************
+  Randomize order of training patterns
+  ******************************************************************/
+    for ( p = 0 ; p < PatternCount ; p++) {
+      q = random(PatternCount);
+      r = RandomizedIndex[p] ;
+      RandomizedIndex[p] = RandomizedIndex[q] ;
+      RandomizedIndex[q] = r ;
+    }
 
 Error = 0.0 ;
 
