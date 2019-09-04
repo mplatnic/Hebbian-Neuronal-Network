@@ -1,6 +1,5 @@
-Many Tools available:
-https://www.researchgate.net/post/What_is_the_best_open_source_package_for_artificial_neural_networks
-https://deeplearning4j.org/docs/latest/deeplearning4j-quickstart
+## Graph simulation tool
+https://rechneronline.de/function-graphs/
 
 ## Neurophstudio
 Neuroph works with JDK7 which is not available
@@ -56,4 +55,7 @@ I am taking the world-famous plot below from wikipedia to show how the validatio
 ![Overfitting](https://i.stack.imgur.com/8Kguj.png)
 
 
+## Many simulation tools available:
+https://www.researchgate.net/post/What_is_the_best_open_source_package_for_artificial_neural_networks
+https://deeplearning4j.org/docs/latest/deeplearning4j-quickstart
 br />
