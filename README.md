@@ -112,4 +112,8 @@ Unsupervised Machine Learning: Flat Clustering
 K-Means clusternig example with Python and Scikit-learn: 
 https://pythonprogramming.net/flat-clustering-machine-learning-python-scikit-learn/
 
+Complete Robot Make Tutorial 
+https://www.reddit.com/r/learnmachinelearning/comments/ckoy0k/want_to_build_your_own_machine_learning_robot/
+
+Reddit serach: https://www.reddit.com/search/?q=neural%20network%20arduino
 
