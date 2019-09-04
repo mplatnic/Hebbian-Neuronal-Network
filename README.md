@@ -23,7 +23,20 @@ In real neurons, time-domain signal pulses travel along the dendrites, and then 
 
 <img src="https://qph.fs.quoracdn.net/main-qimg-67d44168ddd8781707551d306298a0c2" width="500">
 
+
 # Supervised Learning
+
+Summary of the code operation:
+
+    Set up the arrays and assign random weights.
+    Start a loop which runs through each item of training data.
+    Randomise the order in which the training data is run through each iteration to ensure that convergence on local minimums does not occur.
+    Feed the data through the network calculating the activation of the hidden layer’s nodes, output layer’s nodes and the errors.
+    Back propagate the errors to the hidden layer.
+    Update the associated weights.
+    Compare the error to the threshold and decide whether to run another cycle or if the training is complete.
+    Send a sample of the training data to the Serial monitor every thousand cycles.
+
 
 Mathematically, we can describe Hebbian learning as:
 
