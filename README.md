@@ -100,7 +100,18 @@ Our first algorithm to cover is the K-Means algorithm. The idea of K-Means is to
 https://pythonprogramming.net/machine-learning-clustering-introduction-machine-learning-tutorial/
 See Unsupervise-KMeans.py
 
-ADDITIONAL LINKS:
+## Perceptron
+Perceptron models are contained within the set of neural net models.
+A (single layer) perceptron is a single layer neural network that works as a linear binary classifier. 
+If you're talking about a multilayer perceptron (MLP), however, then the term is the same as a feed-forward neural network.
+MLPs are useful in research for their ability to solve problems stochastically, which often allows approximate solutions for extremely complex problems like fitness approximation.
+In artificial intelligence, stochastic programs work by using probabilistic methods to solve problems.
+
+## Three basic machine learning paradigms
+Reinforcement learning (RL) is an area of machine learning concerned with how software agents ought to take actions in an environment so as to maximize some notion of cumulative reward. Reinforcement learning is one of three basic machine learning paradigms, alongside supervised learning and unsupervised learning.
+
+
+## ADDITIONAL LINKS:
 
 KMeans from scratch: https://pythonprogramming.net/k-means-from-scratch-machine-learning-tutorial/
 
