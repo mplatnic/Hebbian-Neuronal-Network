@@ -57,7 +57,7 @@ In general
 - When result is Biased towards a specific answer the system is underfitting
 - The system is not able to predict for the new and unseen condition. This condition is called overfitting
 - Low-complexity models have a low variance, but a high bias. They don’t train very efficiently and don’t learn much
-- As the complexity increases, the bias decreases. The model trains better and also achieves better results in test accuracy. But with increasing complexity, the variance is growing, too. While the training accuracy is getting better and better, the test accuracy actually gets worse.   br />
+- As the complexity increases, the bias decreases. The model trains better and also achieves better results in test accuracy. But with increasing complexity, the variance is growing, too. While the training accuracy is getting better and better, the test accuracy actually gets worse.  
 
 So how do we find the perfect balance between variance and bias?
  - Coordinate Descent Approach, start small, then gradually go bigger.
