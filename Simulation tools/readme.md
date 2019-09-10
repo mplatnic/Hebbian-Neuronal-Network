@@ -16,6 +16,8 @@ To create and train Perceptron neural network using Neuroph Studio do the follow
 4. Train network
 5. Test trained network
 
+## Hyperparameters
+Hyperparameters are everything that can influence how a neural network performs beyond the basic choice of architecture. This can be fundamental stuff like the number of layers in the network and the number of neurons in each layer, but also more abstract parameters like the learning rate, the batch size, and so forth.
 
 Following data Compiled from: 
 https://machinelearningmastery.com/learning-rate-for-deep-learning-neural-networks/  By Jason Brownlee
@@ -48,14 +50,19 @@ Now what happens is that the neural network is trained on the Tr set and its wei
 #### Cross Validation
 one can further strengthen the network against over-fitting by performing K-fold cross-validation. This technique involves performing K rounds of training-validation-testing on, different, non-overlapping, equally-proportioned Tr, Va and Te sets.
 
-#### Overfitting
+#### Over/Under fitting - Bias and Variance
+In general 
+- having high bias reduces the performance of the algorithm on training set 
+- while having high variance is high accuracy on training data and reduces performance on unseen data
+- When result is Biased towards a specific answer the system is underfitting
+- The system is not able to predict for the new and unseen condition. This condition is called overfitting
+- Low-complexity models have a low variance, but a high bias. They don’t train very efficiently and don’t learn much
+- As the complexity increases, the bias decreases. The model trains better and also achieves better results in test accuracy. But with increasing complexity, the variance is growing, too. While the training accuracy is getting better and better, the test accuracy actually gets worse.   br />
 
-I am taking the world-famous plot below from wikipedia to show how the validation set helps prevent overfitting. The training error, in blue, tends to decrease as the number of epochs increases: the network is therefore attempting to match the training set exactly. The validation error, in red, on the other hand follows a different, u-shaped profile. The minimum of the curve is when ideally the training should be stopped as this is the point at which the training and validation error are lowest.
-
-![Overfitting](https://i.stack.imgur.com/8Kguj.png)
-
+So how do we find the perfect balance between variance and bias?
+ - Coordinate Descent Approach, start small, then gradually go bigger.
 
 ## Many simulation tools available:
 https://www.researchgate.net/post/What_is_the_best_open_source_package_for_artificial_neural_networks
 https://deeplearning4j.org/docs/latest/deeplearning4j-quickstart
-br />
+
