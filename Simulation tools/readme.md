@@ -28,8 +28,23 @@ We know, neural network has neurons that work in correspondence of weight, bias 
 Why do we need Non-linear activation functions :-
 A neural network without an activation function is essentially just a linear regression model. The activation function does the non-linear transformation to the input making it capable to learn and perform more complex tasks.
 
-Example of non-linear function: A = 1/(1 + exp(-x)) (sigmoid function)
-)
+Example of non-linear function: 
+- Sigmoid function
+  - f(x) = 1/(1 + exp(-x))       
+  - Value Range : 0 to 1
+- Tanh function, Tangent Hyperbolic function
+  - f(x) = tanh(x) = 2/(1 + e-2x) - 1 = 2 * sigmoid(2x) - 1  
+  - Value Range : -1 to 1
+- RELU , Stands for Rectified linear unit   for hidden layers
+  - f(x) = max(0,x)
+  - Value Range 0 to inf
+  - most widely used activation function
+  
+CHOOSING THE RIGHT ACTIVATION FUNCTION
+- The basic rule of thumb is if you really don’t know what activation function to use, then simply use RELU as it is a general activation function and is used in most cases these days.
+- If your output is for binary classification then, sigmoid function is very natural choice for output layer. 
+  
+  
 Data from: https://www.geeksforgeeks.org/activation-functions-neural-networks/
 
 ## Hyperparameters
