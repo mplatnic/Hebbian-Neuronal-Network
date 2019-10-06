@@ -1,18 +1,11 @@
-# Artificial-Intelligence
+# Artificial-Intelligence Historical Data
 
-A.I. is divided in many fields;
+A.I. first coined in 1956 in the Dramouth Summer Research Project by John Mc Carthy
+at that time the strongest computor could provide 200000 operations/s  </br>
+today (2019) 30 quadrillon operations/s   (1s->4700years)  </br>
+A.I. revolution these last 20years when people started to be connected, an data started to build
 
-Machine learning made of Deep learning, Supervised and Unsupervised Learning
 
-Natural Language Processing
-
-Expert systems
-
-Speech
-
-Vision
-
-..
 # Introduction: Hebbian Neuronal Network 
 
 The Hebbian Learning Rule is a learning rule that specifies how much the weight of the connection between two units should be increased or decreased in proportion to the product of their activation. The rule builds on Hebbs's 1949 learning rule which states that the connections between two neurons might be strengthened if the neurons fire simultaneously. The Hebbian Rule works well as long as all the input patterns are orthogonal or uncorrelated. The requirement of orthogonality places serious limitations on the Hebbian Learning Rule. A more powerful learning rule is the delta rule, which utilizes the discrepancy between the desired and actual output of each output unit to change the weights feeding into it. 
@@ -21,8 +14,16 @@ In real neurons, time-domain signal pulses travel along the dendrites, and then 
 
 <img src="https://qph.fs.quoracdn.net/main-qimg-67d44168ddd8781707551d306298a0c2" width="500">
 
+# Different Fields
+
+A.I. is divided in many fields, mainly we will study:
+- Reinforcement Learning (like a baby learns)
+- Supervised Learning (included training, needs a supervisor!)
+- Unsupervised Learning (usually grouping, clustering - helps to find patterns)
 
 # Supervised Learning
+
+First neuron programmed in 1958, to recognized a circle from triangle.
 
 Summary of the code operation:
 
