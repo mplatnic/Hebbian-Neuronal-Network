@@ -14,9 +14,9 @@ In real neurons, time-domain signal pulses travel along the dendrites, and then 
 
 <img src="https://qph.fs.quoracdn.net/main-qimg-67d44168ddd8781707551d306298a0c2" width="500">
 
-# Different Fields
+# Three basic machine learning paradigms
 
-A.I. is divided in many fields, mainly we will study:
+Machine Learning is divided in many fields, mainly we will study:
 - Reinforcement Learning (like a baby learns)
 - Supervised Learning (included training, needs a supervisor!)
 - Unsupervised Learning (usually grouping, clustering - helps to find patterns)
@@ -24,6 +24,13 @@ A.I. is divided in many fields, mainly we will study:
 # Supervised Learning
 
 First neuron programmed in 1958, to recognized a circle from triangle.
+
+## Perceptron
+Perceptron models are contained within the set of neural net models.
+A (single layer) perceptron is a single layer neural network that works as a linear binary classifier. 
+If you're talking about a multilayer perceptron (MLP), however, then the term is the same as a feed-forward neural network.
+MLPs are useful in research for their ability to solve problems stochastically, which often allows approximate solutions for extremely complex problems like fitness approximation.
+In artificial intelligence, stochastic programs work by using probabilistic methods to solve problems.
 
 Summary of the code operation:
 
@@ -63,8 +70,6 @@ Oja Rule:
 <img src="https://www.mathsisfun.com/algebra/images/matrix-multiply-c.svg" width="400">
 
 ## Note on Sigmoid function:
-
-
 This is our "nonlinearity". While it can be several kinds of functions, this nonlinearity maps a function called a "sigmoid". A sigmoid function maps any value to a value between 0 and 1. 
 
 <img src="https://iamtrask.github.io/img/sigmoid.png" width="400">
@@ -85,9 +90,7 @@ How to create a poet / writer using Deep Learning (Text Generation using Python)
 https://www.analyticsvidhya.com/blog/2018/03/text-generation-using-python-nlp/
 
 
-
 # Unsupervised Machine Learning
-
 Unsupervised learning only trains using inputs, and the network has to figure out how they relate to each other. This method is used to solve Clustering problems, estimation problems.
 
 Learnind without teacher, without knowing the correct answer
@@ -99,14 +102,7 @@ Our first algorithm to cover is the K-Means algorithm. The idea of K-Means is to
 https://pythonprogramming.net/machine-learning-clustering-introduction-machine-learning-tutorial/
 See Unsupervise-KMeans.py
 
-## Perceptron
-Perceptron models are contained within the set of neural net models.
-A (single layer) perceptron is a single layer neural network that works as a linear binary classifier. 
-If you're talking about a multilayer perceptron (MLP), however, then the term is the same as a feed-forward neural network.
-MLPs are useful in research for their ability to solve problems stochastically, which often allows approximate solutions for extremely complex problems like fitness approximation.
-In artificial intelligence, stochastic programs work by using probabilistic methods to solve problems.
-
-## Three basic machine learning paradigms
+# Reinforcement Learning 
 Reinforcement learning (RL) is an area of machine learning concerned with how software agents ought to take actions in an environment so as to maximize some notion of cumulative reward. Reinforcement learning is one of three basic machine learning paradigms, alongside supervised learning and unsupervised learning.
 
 
