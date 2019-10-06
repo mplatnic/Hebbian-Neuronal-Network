@@ -33,7 +33,7 @@ Go to "File" then "Settings"
 - Add the Breakpoint by clicking next to Line numbers of the files
 - Click on the 'Green Bug' on the top right side
 - To continue Press the Green arrow of type 'step-by-step' on the debugger window, bottom-left side
-
+- Press Alt + Shift + F7 (step into  my code) to go on step by step
 
 ### Other
 Needs Tensorflow
