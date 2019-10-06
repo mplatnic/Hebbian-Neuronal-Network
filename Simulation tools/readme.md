@@ -28,7 +28,7 @@ We know, neural network has neurons that work in correspondence of weight, bias 
 Why do we need Non-linear activation functions :-
 A neural network without an activation function is essentially just a linear regression model. The activation function does the non-linear transformation to the input making it capable to learn and perform more complex tasks.
 
-Example of non-linear function: A = 1/(1 + e*-x*) (sigmoid function)
+Example of non-linear function: A = 1/(1 + exp(-x)) (sigmoid function)
 )
 Data from: https://www.geeksforgeeks.org/activation-functions-neural-networks/
 
