@@ -8,9 +8,9 @@ Create new project "ANN3-1", then define the directory
 Click on Name of project just created "ANN3-1", then From "File" choose new then Python File "ANN3-1Simple"  
 - On the Bottom left click "Python Console" 
 - Write 3+4, then press "Enter", the console will evaluate the line 
-- Write: a=3 <\br> a+4 
+- Write: a=3 </br> a+4 
 - Then start writting in the Python File (The main window of PyCharm)
-- Write: </br> a=3 </br> print(a+4)
+- Write: a=3 </br> print(a+4)
 - Then Right click on the name of the file and then click Run"ANN3-1Simple" 
 
 ### Add a library
