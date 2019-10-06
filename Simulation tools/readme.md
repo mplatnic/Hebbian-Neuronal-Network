@@ -19,6 +19,19 @@ then Multi Layer Perceptron
 4. Train network
 5. Test trained network
 
+## Activation Function
+Definition of activation function:- Activation function decides, whether a neuron should be activated or not by calculating weighted sum and further adding bias with it. The purpose of the activation function is to introduce non-linearity into the output of a neuron.
+
+Explanation :-
+We know, neural network has neurons that work in correspondence of weight, bias and their respective activation function. In a neural network, we would update the weights and biases of the neurons on the basis of the error at the output. This process is known as back-propagation. Activation functions make the back-propagation possible since the gradients are supplied along with the error to update the weights and biases.
+
+Why do we need Non-linear activation functions :-
+A neural network without an activation function is essentially just a linear regression model. The activation function does the non-linear transformation to the input making it capable to learn and perform more complex tasks.
+
+Example of non-linear function: A = 1/(1 + e*-x*) (sigmoid function)
+)
+Data from: https://www.geeksforgeeks.org/activation-functions-neural-networks/
+
 ## Hyperparameters
 Hyperparameters are everything that can influence how a neural network performs beyond the basic choice of architecture. This can be fundamental stuff like the number of layers in the network and the number of neurons in each layer, but also more abstract parameters like the learning rate, the batch size, and so forth.
 
