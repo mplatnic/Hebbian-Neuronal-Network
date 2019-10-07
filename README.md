@@ -2,7 +2,7 @@
 
 A.I. first coined in 1956 in the Dramouth Summer Research Project by John Mc Carthy
 at that time the strongest computor could provide 200000 operations/s  </br>
-today (2019) 30 quadrillon operations/s   (1s->4700years)  </br>
+today (2019) 130 quadrillon operations/s   (1s->20611years)  </br>
 A.I. revolution these last 20years when people started to be connected, an data started to build
 
 
