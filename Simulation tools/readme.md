@@ -94,6 +94,8 @@ In general
 So how do we find the perfect balance between variance and bias?
  - Coordinate Descent Approach, start small, then gradually go bigger.
 
+Bias: https://missinglink.ai/guides/neural-network-concepts/neural-network-bias-bias-neuron-overfitting-underfitting/
+
 ## Many simulation tools available:
 https://www.researchgate.net/post/What_is_the_best_open_source_package_for_artificial_neural_networks
 https://deeplearning4j.org/docs/latest/deeplearning4j-quickstart
