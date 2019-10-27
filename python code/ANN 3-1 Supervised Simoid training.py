@@ -31,7 +31,7 @@ y = np.array([[0,0,1,1]]).T   #T is for mattrix transpose
 np.random.seed(1)  
 
 # initialize weights randomly with mean 0
-syn0 = 2*np.random.random((3,1)) - 1
+syn0 = 2*np.random.random((3,1)) - 1    # random=[0,1], we want weight=[-1,1], random(line,column), syn0 is vertical
 
 for iter in range(10000):
 
