@@ -46,6 +46,7 @@ CHOOSING THE RIGHT ACTIVATION FUNCTION
   
   
 Data from: https://www.geeksforgeeks.org/activation-functions-neural-networks/
+https://missinglink.ai/guides/neural-network-concepts/7-types-neural-network-activation-functions-right/
 
 ## Hyperparameters
 Hyperparameters are everything that can influence how a neural network performs beyond the basic choice of architecture. This can be fundamental stuff like the number of layers in the network and the number of neurons in each layer, but also more abstract parameters like the learning rate, the batch size, and so forth.
