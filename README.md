@@ -108,6 +108,8 @@ Reinforcement learning (RL) is an area of machine learning concerned with how so
 
 ## ADDITIONAL LINKS:
 
+Backpropagation theory and formulas: https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/
+
 KMeans from scratch: https://pythonprogramming.net/k-means-from-scratch-machine-learning-tutorial/
 
 Python code for regression types/ linear models: https://scikit-learn.org/stable/modules/linear_model.html
