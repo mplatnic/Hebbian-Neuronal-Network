@@ -29,7 +29,8 @@ def nonlin(x, deriv=False):
     return 1 / (1 + np.exp(-x))
 
 
-# input dataset
+# input dataset for OR
+# for XOR add an additional neuron in the hidden layer
 X = np.array([[0, 0],
               [0, 1],
               [1, 0],
@@ -64,7 +65,7 @@ for iter in range(10000):
     # how much did each l1 value contribute to the l2 error (according to the weights)?
     # "contribution weighted error" because we learn how much each node value in l1
     # "contributed" to the error in l2. This step is called "backpropagating" and is the namesake of the algorithm
-    l1_error = l2_delta.dot(syn1.T)
+    l1_error = l2_delta.dot(syn1.T)   # same as l1_error = np.dot(l2_delta,syn1.T)
     l1_delta = l1_error * nonlin(l1, True)
 
     # update weights
