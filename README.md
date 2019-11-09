@@ -125,3 +125,5 @@ https://www.reddit.com/r/learnmachinelearning/comments/ckoy0k/want_to_build_your
 
 Reddit serach: https://www.reddit.com/search/?q=neural%20network%20arduino
 
+Example character recognition: http://neuralnetworksanddeeplearning.com/chap1.html
+
