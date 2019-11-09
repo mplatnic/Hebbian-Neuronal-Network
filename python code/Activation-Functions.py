@@ -1,5 +1,8 @@
 import numpy as np
 
+# The basic rule of thumb is if you really don’t know what activation function to use, 
+# then simply use RELU as it is a general activation function and is used in most cases these days.
+# If your output is for binary classification then, sigmoid function is very natural choice for output layer. 
 
 #    Sigmoid function
 #        f(x) = 1/(1 + exp(-x))
