@@ -22,9 +22,11 @@ y = np.array([[0, 1, 1, 1]]).T  # T is for mattrix transpose
 
 # initialize weights
 syn0 = np.array([[1],[1]])
+print("Weights: ",syn0)
 
 # forward propagation
 l0 = X
 # l1 = sigmoid (l0 x syn0), matrix-matrix multiplication
 # [4,1] = [4,2].[2,1] + [4,1]
 l1 = sigmoid(np.dot(l0, syn0))
+print("l1: ",l1)
