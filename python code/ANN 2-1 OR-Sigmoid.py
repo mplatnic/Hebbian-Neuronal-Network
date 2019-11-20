@@ -33,7 +33,7 @@ for iter in range(10000):
 
     # multiply how much we missed by the 
     # slope of the sigmoid at the values in l1
-    l1_delta = l1_error * Sigmoid_deriv(l1)
+    l1_delta = l1_error * Sigmoid_deriv(S)
 
     # update weights
     syn0 = syn0 + np.dot(l0.T,l1_delta)
