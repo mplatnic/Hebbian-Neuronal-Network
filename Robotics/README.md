@@ -1,7 +1,8 @@
 ## Robot Kit:
-https://www.thingiverse.com/thing:2311678
-https://www.youtube.com/watch?v=MeIh17FivVM
-https://www.youtube.com/watch?v=mbogxJWU0_A
+https://www.thingiverse.com/thing:2311678  </br>
+https://www.youtube.com/watch?v=MeIh17FivVM  </br>
+https://www.youtube.com/watch?v=mbogxJWU0_A  </br>
+https://www.youtube.com/watch?v=8LPzWR7NBR4  </br>
 
 ## RoboCupJunior General Rules
 https://junior.robocup.org/robocupjunior-general-rules/  </br>
