@@ -3,6 +3,9 @@ https://www.thingiverse.com/thing:2311678  </br>
 https://www.youtube.com/watch?v=MeIh17FivVM  </br>
 https://www.youtube.com/watch?v=mbogxJWU0_A  </br>
 https://www.youtube.com/watch?v=8LPzWR7NBR4  </br>
+https://www.youtube.com/watch?v=Qt7lIR4GxWA   Tracking person Arduino+Android  </br>
+https://www.youtube.com/watch?v=BaDz12Yt0rw  Bionic Robots - High Standard 
+
 
 ## RoboCupJunior General Rules
 https://junior.robocup.org/robocupjunior-general-rules/  </br>
